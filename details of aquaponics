@@ -1,0 +1,70 @@
+IoT-Based Smart Aquaponics System with TinyML Anomaly Detection and Automatic Fish Feeder
+  Project Concept
+
+This project develops an intelligent aquaponics system using:
+
+IoT (ESP32) → Collects real-time data
+Sensors → Monitor water and environment
+TinyML (Machine Learning) → Detect anomalies
+Actuators → Automatically control system
+Auto Fish Feeder → Ensures regular feeding
+
+  Components Used
+🔹 Controller
+ESP32
+🔹 Sensors (Max 5)
+pH Sensor
+TDS Sensor
+Water Temperature Sensor (DS18B20)
+Water Level Sensor
+DHT22 (Air temp + humidity)
+
+  Actuators
+Relay-controlled Water Pump
+Automatic Fish Feeder (Servo Motor)
+Buzzer / LED (Alert)
+🔹 Software
+Arduino IDE
+Python (ML training)
+TensorFlow Lite Micro
+
+  Working Principle
+Step 1 — Data Collection
+
+ESP32 continuously reads:
+
+pH
+TDS
+Temperature
+Water level
+Step 2 — Data Processing
+  Basic Mode (Threshold)
+  smart Mode(TinyMl)
+
+  Step 3 -- Decision Making
+Condition	Action
+Low water	Turn ON pump
+High TDS	Circulate water
+High temperature	Cooling
+Scheduled time	Activate fish feeder
+Anomaly	Alert + action
+
+  Machine Learning Flow
+Step 1 — Data Collection
+Collect sensor data into CSV
+Step 2 — Training (Python)
+
+Input:
+
+[pH, TDS, Temp, WaterLevel]
+
+Model:
+
+Autoencoder / Neural Network
+  
+Step 3 — Conversion
+Convert model → .tflite
+Convert → C array
+Step 4 — Deployment
+Upload to ESP32
+Real-time prediction
